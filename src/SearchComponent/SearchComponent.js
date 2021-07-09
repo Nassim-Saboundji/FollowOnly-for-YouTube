@@ -1,32 +1,48 @@
 import React from 'react';
 import Utils from '../Utils/Utils';
+import ChannelCard from './ChannelCard';
 
 class SearchComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             input: "",
-            searchResult: []
+            searchResults: []
         };
-        this.initiateSearch = this.initiateSearch.bind(this);
+        this.search = this.search.bind(this);
+        this.subscribe = this.subscribe.bind(this);
     }
 
-    async initiateSearch(event) {
+
+    subscribe() {
+        console.log('hello');
+    }
+
+    async search(event) {
         event.preventDefault();          
         let utils = new Utils();
-        const instance = await utils.getRandomInstance();
-        
-        const searchResult = await (await fetch(
-            `https://${instance}/api/v1/search?q=${this.state.input}&type=channel&sort_by=relevance`
-        )).json();
-        this.setState({searchResult: searchResult});
+        let continueTrying = true;
+
+        while (continueTrying) {
+            try {
+                const instance = await utils.getRandomInstance();
+                const searchResult = await (await fetch(
+                    `https://${instance}/api/v1/search?q=${this.state.input}&type=channel&sort_by=relevance`
+                )).json();
+
+                this.setState({searchResults: searchResult.slice(0,4)});
+                continueTrying = false;
+            } catch {
+                
+            }
+        }
     }
     
 
     render() {
         return (
             <div>
-              <form onSubmit={this.initiateSearch}>
+              <form onSubmit={this.search}>
                 <input 
                 placeholder="Search channel..."
                 onChange={input => {
@@ -39,7 +55,16 @@ class SearchComponent extends React.Component {
                 />
               </form>
               
-              <div>{this.state.currentInstance}</div>
+              {(this.state.searchResults).map(result => {
+                  return <ChannelCard 
+                  author={result.author} 
+                  subCount={result.subCount}
+                  authorId={result.authorId}
+                  description={result.description}
+                  handler={this.subscribe} /> 
+              })}
+
+  
                    
             </div>
         );
