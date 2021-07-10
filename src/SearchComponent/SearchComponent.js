@@ -10,12 +10,6 @@ class SearchComponent extends React.Component {
             searchResults: []
         };
         this.search = this.search.bind(this);
-        this.subscribe = this.subscribe.bind(this);
-    }
-
-
-    subscribe() {
-        console.log('hello');
     }
 
     async search(event) {
@@ -61,7 +55,7 @@ class SearchComponent extends React.Component {
                   subCount={result.subCount}
                   authorId={result.authorId}
                   description={result.description}
-                  handler={this.subscribe} /> 
+                  subsHandler={this.props.subsHandler} /> 
               })}
 
   
