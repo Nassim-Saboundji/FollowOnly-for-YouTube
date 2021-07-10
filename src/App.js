@@ -1,4 +1,5 @@
 import React from 'react';
+import SubsListComponent from './SubsListComponent/SubsListComponent';
 import SearchComponent from './SearchComponent/SearchComponent';
 import ViewSubsContent from './ViewSubsComponent/ViewSubsContent';
 
@@ -11,7 +12,8 @@ class App extends React.Component {
             subs: {},
             navigateTo: {
                 searchComponent: false,
-                viewSubsContent: false
+                viewSubsContent: false,
+                subsComponent: false
             }
         };
         this.subsHandler = this.subsHandler.bind(this);
@@ -47,15 +49,24 @@ class App extends React.Component {
                     <button onClick={() => {
                         this.setState({navigateTo: {
                             searchComponent: false,
-                            viewSubsContent: true
+                            viewSubsContent: true,
+                            subsComponent: false
                         }});
-                    }}>View Subs Content</button>
+                    }}>View Feed</button>
                     <button onClick={() => {
                         this.setState({navigateTo: {
                             searchComponent: true,
-                            viewSubsContent: false
+                            viewSubsContent: false,
+                            subsComponent: false
                         }});
                     }}>Search Channels</button>
+                    <button onClick={() => {
+                        this.setState({navigateTo: {
+                            searchComponent: false,
+                            viewSubsContent: false,
+                            subsComponent: true
+                        }});
+                    }}>Subbed Channels</button>
                 </div>
 
                 {(() => {
@@ -69,6 +80,12 @@ class App extends React.Component {
                         return <ViewSubsContent subsHandler={this.subsHandler}/>
                     }
                 })()}
+
+                {(() => {
+                    if ((this.state.navigateTo).subsComponent === true) {
+                        return <SubsListComponent subsHandler={this.subsHandler}/>
+                    }
+                })()}   
             </>
         ); 
     }
