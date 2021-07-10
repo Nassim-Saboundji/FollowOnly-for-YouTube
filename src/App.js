@@ -2,7 +2,7 @@ import React from 'react';
 import SubsListComponent from './SubsListComponent/SubsListComponent';
 import SearchComponent from './SearchComponent/SearchComponent';
 import ViewSubsContent from './ViewSubsComponent/ViewSubsContent';
-
+import './style.css';
 
 class App extends React.Component {    
     
@@ -61,21 +61,25 @@ class App extends React.Component {
         return (
             <>
                 <div>
-                    <button onClick={() => {
+                    <h1><span id="followOnly">FollowOnly</span> for YouTube</h1>
+                    <p>Frontend Client for watching content made by channels you follow and nothing else.</p>
+                </div>
+                <div className="wrapper">
+                    <button className="navButton" onClick={() => {
                         this.setState({navigateTo: {
                             searchComponent: false,
                             viewSubsContent: true,
                             subsComponent: false
                         }});
                     }}>View Feed</button>
-                    <button onClick={() => {
+                    <button className="navButton" onClick={() => {
                         this.setState({navigateTo: {
                             searchComponent: true,
                             viewSubsContent: false,
                             subsComponent: false
                         }});
                     }}>Search Channels</button>
-                    <button onClick={() => {
+                    <button className="navButton" onClick={() => {
                         this.setState({navigateTo: {
                             searchComponent: false,
                             viewSubsContent: false,
