@@ -38,7 +38,7 @@ class SearchComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="contentArea">
               <form onSubmit={this.search}>
                 <input 
                 placeholder="Search channel..."

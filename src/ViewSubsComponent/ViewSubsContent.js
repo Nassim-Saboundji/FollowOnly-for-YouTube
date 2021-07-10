@@ -51,7 +51,7 @@ class ViewSubsContent extends React.Component {
     render() {
     
         return (
-            <div>
+            <div className="contentArea">
                 {(this.state.subsLatestContent).map(video => {
                     return <div key={video.videoId}>
                         <a 

@@ -60,7 +60,7 @@ class App extends React.Component {
 
         return (
             <>
-                <div>
+                <div id="titleSection">
                     <h1><span id="followOnly">FollowOnly</span> for YouTube</h1>
                     <p>Frontend Client for watching content made by channels you follow and nothing else.</p>
                 </div>

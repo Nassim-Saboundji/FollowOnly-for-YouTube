@@ -100,3 +100,17 @@ select {
     font-style: italic;
     color: #FF165D;
 }
+
+#titleSection {
+    margin-left: 5px;
+}
+
+body {
+   background-color: #F6F7D7;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.contentArea {
+    padding: 70px 0;
+    text-align: center;
+}

@@ -44,7 +44,7 @@ class SubsListComponent extends React.Component{
 
     render() {
         console.log(this.state.subs);
-        return (<div>
+        return (<div className="contentArea">
             {(this.state.subs).map(sub => {
                 return <ChannelCard 
                 author={sub.author} 
