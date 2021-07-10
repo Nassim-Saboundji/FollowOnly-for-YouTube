@@ -17,8 +17,23 @@ class App extends React.Component {
             }
         };
         this.subsHandler = this.subsHandler.bind(this);
+        
+        //code for saving subs to localstorage.
+        window.onunload = () => {
+            localStorage.setItem('subs', JSON.stringify(this.state.subs));
+        };
+
 
     }
+
+    componentDidMount() {
+        window.onload = () => {
+            const subs = localStorage.getItem('subs');
+            this.setState({subs: JSON.parse(subs)});
+        };
+    }
+
+
 
     subsHandler(channel, command) {
         let currentSubs = this.state.subs;

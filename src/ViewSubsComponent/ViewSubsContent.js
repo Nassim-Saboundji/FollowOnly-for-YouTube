@@ -22,7 +22,7 @@ class ViewSubsContent extends React.Component {
                     setTimeout(() => controller.abort(), 2000);
                     const instance = await utils.getRandomInstance();
                     const content = await (await fetch(
-                        `https://${instance}/api/v1//channels/latest/${key}`,
+                        `https://${instance}/api/v1/channels/latest/${key}`,
                         { signal: controller.signal }
                     )).json();
 
