@@ -51,17 +51,17 @@ class ViewSubsContent extends React.Component {
     render() {
     
         return (
-            <div className="contentArea">
+            <ul>
                 {(this.state.subsLatestContent).map(video => {
-                    return <div key={video.videoId}>
+                    return <li key={video.videoId}>
                         <a 
                         href={"https://www.youtube-nocookie.com/embed/" + video.videoId}
                         target="_blank"
                         rel="noreferrer"
-                        >{video.title} ~ {video.author}</a>
-                    </div>;
+                        >{video.title}</a>
+                    </li>;
                 })}
-            </div>
+            </ul>
         );
     }
 

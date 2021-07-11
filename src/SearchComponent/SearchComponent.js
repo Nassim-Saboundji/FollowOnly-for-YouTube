@@ -38,15 +38,17 @@ class SearchComponent extends React.Component {
 
     render() {
         return (
-            <div className="contentArea">
+            <div className="searchScreen">
               <form onSubmit={this.search}>
                 <input 
+                className="searchBar"
                 placeholder="Search channel..."
                 onChange={input => {
                     this.setState({input: input.target.value});
                 }}
                 /> 
                 <input
+                className="searchButton"
                 type="submit"
                 value="Search"
                 />

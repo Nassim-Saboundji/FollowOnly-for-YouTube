@@ -77,17 +77,41 @@ select {
 
 
 .navButton {
-    margin: 2vw 2vh 2vh 2vw;
-    filter: drop-shadow(5px 5px #272727);
-    color: rgb(255, 255, 255);
-    border-color: rgb(22, 22, 22);
-    border-radius: 5px;
-    border-width: 3px;
-    background-color: #FF165D;
-    transition: all .2s ease-in-out;
+  margin: 2vw 2vh 2vh 2vw;
+  filter: drop-shadow(5px 5px #272727);
+  color: rgb(255, 255, 255);
+  border-color: rgb(22, 22, 22);
+  border-radius: 5px;
+  border-width: 3px;
+  background-color: #FF165D;
+  transition: all .2s ease-in-out;
 }
 
-.navButton:hover, .navButton:active {
+.subButton {
+  margin-top: 2px;
+  color: #FFFF;
+  border-color: rgb(22, 22, 22);
+  border-radius: 5px;
+  border-width: 3px;
+  background-color: #FF165D;
+  transition: all .2s ease-in-out;
+}
+
+.searchButton {
+  background-color: #FF165D;
+  border-color: rgb(22, 22, 22);
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  border-top-width: 3px;
+  color: #FFFF;
+}
+
+.searchBar {
+  border-color: rgb(22, 22, 22);
+  border-width: 3px;
+}
+
+.navButton:hover, .navButton:active, .subButton:hover, .subButton:active {
     transform: scale(1.1);
 }
 
@@ -110,8 +134,17 @@ body {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-.contentArea {
-    padding: 70px 0;
-    text-align: center;
-    
+.searchScreen {
+  padding: 70px 0;
+  text-align: center;  
+}
+
+.searchResults {
+  margin-top: 50%;
+}
+
+.channelCard {
+  color: #FF165D;
+  border-width: 3px;
+  padding-top: 2vh;
 }
