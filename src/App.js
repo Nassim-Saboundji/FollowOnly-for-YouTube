@@ -11,7 +11,6 @@ if (localStorage.getItem('subs') === null) {
   localStorage.setItem('subs', JSON.stringify(savedSubs));
 } else {
   savedSubs = JSON.parse(localStorage.getItem('subs'));
-  console.log(savedSubs);
 } 
 
 

@@ -43,7 +43,7 @@ class SubsListComponent extends React.Component{
 
 
     render() {
-        console.log(this.state.subs);
+    
         return (<div className="subList">
             {(this.state.subs).map(sub => {
                 return <ChannelCard 
