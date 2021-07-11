@@ -134,7 +134,7 @@ body {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-.searchScreen {
+.searchScreen, .subList {
   padding: 70px 0;
   text-align: center;  
 }
