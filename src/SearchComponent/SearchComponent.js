@@ -21,7 +21,7 @@ class SearchComponent extends React.Component {
             try {
                 const instance = await utils.getRandomInstance();
                 const controller = new AbortController();
-                setTimeout(() => controller.abort(), 3000);
+                setTimeout(() => controller.abort(), 2000);
                 const searchResult = await (await fetch(
                     `https://${instance}/api/v1/search?q=${this.state.input}&type=channel&sort_by=relevance`,
                     { signal: controller.signal }

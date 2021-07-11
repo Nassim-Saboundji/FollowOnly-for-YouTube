@@ -4,36 +4,37 @@ import SearchComponent from './SearchComponent/SearchComponent';
 import ViewSubsContent from './ViewSubsComponent/ViewSubsContent';
 import './style.css';
 
+
+var savedSubs = {};
+
+if (localStorage.getItem('subs') === null) {
+  localStorage.setItem('subs', JSON.stringify(savedSubs));
+} else {
+  savedSubs = JSON.parse(localStorage.getItem('subs'));
+  console.log(savedSubs);
+} 
+
+
+window.onunload = () => {
+  localStorage.setItem('subs', JSON.stringify(savedSubs));
+}
+
 class App extends React.Component {    
     
     constructor(props) {
         super(props);
         this.state = {
-            subs: {},
+            subs: savedSubs,
             navigateTo: {
                 searchComponent: false,
                 viewSubsContent: false,
                 subsComponent: false
             }
         };
+
         this.subsHandler = this.subsHandler.bind(this);
-        
-        //code for saving subs to localstorage.
-        // window.onunload = () => {
-        //     localStorage.setItem('subs', JSON.stringify(this.state.subs));
-        // };
-
-
+    
     }
-
-    // componentDidMount() {
-    //     window.onload = () => {
-    //         const subs = localStorage.getItem('subs');
-    //         this.setState({subs: JSON.parse(subs)});
-    //     };
-    // }
-
-
 
     subsHandler(channel, command) {
         let currentSubs = this.state.subs;
@@ -44,20 +45,20 @@ class App extends React.Component {
                 description: channel.description
             };
             this.setState({subs: currentSubs});
-            console.log(this.state.subs);
+            savedSubs = this.state.subs;
 
         } else if (command === "deleteSub") {
             delete currentSubs[channel.authorId];
             this.setState({subs: currentSubs});
-            console.log(this.state.subs);
+            savedSubs = this.state.subs;
 
         } else if (command === "getCurrentSubs") {
             return currentSubs;
+            
         }
     }
 
     render() {
-
         return (
             <>
                 <div id="titleSection">

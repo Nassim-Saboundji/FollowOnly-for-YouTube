@@ -20,7 +20,7 @@ class SubsListComponent extends React.Component{
             while (continueTrying) {
                 try {
                     const controller = new AbortController();
-                    setTimeout(() => controller.abort(), 3000);
+                    setTimeout(() => controller.abort(), 2000);
                     const instance = await utils.getRandomInstance();
                     const channelDetails = await (await fetch(
                         `https://${instance}/api/v1/channels/${sub}`,
