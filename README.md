@@ -26,3 +26,4 @@ This project is powered by the invidious project on github which is an alternati
 
 ## If this is useful, feel free to make a donation to support the project
 [Donate Here!](https://www.buymeacoffee.com/nassimfr)
+Thanks for your support! I'll most likely use your donations to pay for hosting for my upcoming projects.
