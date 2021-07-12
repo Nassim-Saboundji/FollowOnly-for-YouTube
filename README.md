@@ -20,7 +20,7 @@ to the addictive nature of the YouTube platform.
 ## Powered by Invidious
 This project is powered by the invidious project on github which is an alternative client for YouTube that offers a developer API to fetch data from YouTube.
 
-[link to that project](https://github.com/iv-org/invidious)
+[Link to that project](https://github.com/iv-org/invidious)
 
 ## How to run locally
 - Clone the repo
